@@ -1,0 +1,33 @@
+﻿@model IEnumerable<BigSchool_THBuoi4.Models.Course>
+@{
+    ViewBag.Title = "Attending";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
+
+<div class="row">
+    <ul class="course">
+        @foreach (var course in Model)
+        {
+            <li>
+                <div class="date">
+                    <div class="month">
+                        @course.Date_Time.ToString().Substring(3,2)
+                    </div>
+                    <div class="day">
+                        @course.Date_Time.ToString().Substring(0,2)
+                    </div>
+                </div>
+                <div class="details">
+                    <span class="lecture">
+                        @course.LectureName
+                    </span>
+                    <br />
+                    <span class="category">
+                        @course.Category.Name
+                    </span>
+                </div>
+            </li>
+        }
+    </ul>
+</div>
